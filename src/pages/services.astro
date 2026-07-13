@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+---
+
+<Layout title="Nossos Serviços - pjholz Logística" description="Conheça nosso catálogo completo de serviços logísticos: frete rodoviário, frete aéreo internacional, frete marítimo FCL/LCL e armazenagem estratégica.">
+  <!-- Page Header Banner -->
+  <section class="page-header" style="background-image: linear-gradient(rgba(10, 34, 45, 0.85), rgba(10, 34, 45, 0.85)), url('/images/hero_cargo_ship.png');">
+    <div class="container text-center">
+      <h1>Nossos Serviços</h1>
+      <div class="breadcrumbs">
+        <a href="/">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Serviços</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Catalog Grid Component -->
+  <ServicesSection />
+
+  <!-- Detailed Service Modals/Blocks -->
+  <section class="detailed-services section-padding">
+    <div class="container">
+      <!-- Modal block 1: Ocean -->
+      <div class="service-detail-row" id="ocean">
+        <div class="service-detail-img">
+          <img src="/images/hero_cargo_ship.png" alt="Frete Marítimo" />
+        </div>
+        <div class="service-detail-info">
+          <span class="badge-tag">Frete Marítimo</span>
+          <h2>Transporte Marítimo Internacional (FCL & LCL)</h2>
+          <p>
+            Com contratos diretos com os principais armadores mundiais, a pjholz coordena o tráfego de contêineres cheios (FCL) ou cargas consolidadas (LCL) de qualquer porto do planeta. Nós cuidamos de todo o processo burocrático de liberação alfandegária e estufagem de cargas especiais.
+          </p>
+          <ul class="detail-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Consolidação de Carga em Portos Principais</li>
+            <li><i class="fa-solid fa-circle-check"></i> Rastreamento Completo de Navios em Tempo Real</li>
+            <li><i class="fa-solid fa-circle-check"></i> Desembaraço Aduaneiro e Assessoria Documental</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal block 2: Road -->
+      <div class="service-detail-row reverse" id="road">
+        <div class="service-detail-img">
+          <img src="/images/about_truck.png" alt="Frete Rodoviário" />
+        </div>
+        <div class="service-detail-info">
+          <span class="badge-tag">Frete Rodoviário</span>
+          <h2>Transporte de Cargas em Frotas Rastreadas</h2>
+          <p>
+            Nossa divisão rodoviária atende a todo o território nacional e conexões do Mercosul. Oferecemos transporte com segurança reforçada, monitoramento contínuo e caminhões modernos adequados para cargas sensíveis, perigosas, químicas ou superdimensionadas.
+          </p>
+          <ul class="detail-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Transporte Rodoviário Lotação e Fracionado</li>
+            <li><i class="fa-solid fa-circle-check"></i> Escolta e Monitoramento Satelital Integrado</li>
+            <li><i class="fa-solid fa-circle-check"></i> Rotas Otimizadas para Redução de Emissões</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal block 3: Warehouse -->
+      <div class="service-detail-row" id="warehouse">
+        <div class="service-detail-img">
+          <img src="/images/gallery_warehouse.png" alt="Armazenagem" />
+        </div>
+        <div class="service-detail-info">
+          <span class="badge-tag">Armazenagem</span>
+          <h2>Gestão de Estoque e Armazenagem Inteligente</h2>
+          <p>
+            Nossos centros de distribuição estrategicamente localizados fornecem infraestrutura completa com temperatura controlada, segurança 24h e integração direta com WMS. Oferecemos serviços agregados como etiquetagem, montagem de kits, cross-docking e picking fracionado de alta precisão.
+          </p>
+          <ul class="detail-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Integração de API com ERPs de E-commerce e Indústria</li>
+            <li><i class="fa-solid fa-circle-check"></i> Cross-Docking Ágil para Distribuição Rápida</li>
+            <li><i class="fa-solid fa-circle-check"></i> Controle de Qualidade e Inventário Rotativo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Booking Form Component -->
+  <QuoteForm />
+</Layout>
+
+<style>
+  /* Page Header Styles */
+  .page-header {
+    padding: 6rem 0;
+    background-size: cover;
+    background-position: center;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-text-light);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-accent);
+  }
+
+  .breadcrumbs i {
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+  }
+
+  /* Detailed rows */
+  .detailed-services {
+    background-color: var(--color-bg-white);
+  }
+
+  .service-detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+
+  .service-detail-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-detail-row.reverse {
+    direction: rtl;
+  }
+
+  .service-detail-row.reverse .service-detail-info {
+    direction: ltr;
+  }
+
+  .service-detail-img {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    height: 380px;
+  }
+
+  .service-detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .service-detail-row:hover .service-detail-img img {
+    transform: scale(1.05);
+  }
+
+  .service-detail-info h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .service-detail-info p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .detail-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .detail-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .detail-bullets i {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 992px) {
+    .service-detail-row,
+    .service-detail-row.reverse {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      direction: ltr;
+    }
+    
+    .service-detail-img {
+      height: 300px;
+    }
+  }
+</style>

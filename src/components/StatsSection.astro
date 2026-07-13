@@ -1,0 +1,159 @@
+---
+// StatsSection.astro
+---
+
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid grid grid-3">
+      <!-- Card 1: Orange Primary -->
+      <div class="stat-card card-orange">
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-truck"></i>
+        </div>
+        <h3 class="stat-number">15K+</h3>
+        <h4 class="stat-title">Mercadorias Entregues</h4>
+        <p class="stat-desc">Transportes de grande e médio porte realizados com sucesso absoluto em rodovias e portos.</p>
+        <ul class="stat-features">
+          <li><i class="fa-solid fa-check"></i> Coleta Agendada no Mesmo Dia</li>
+          <li><i class="fa-solid fa-check"></i> Embalagem Segura Certificada</li>
+        </ul>
+        <a href="/services" class="btn btn-white btn-stat">Conhecer Serviços</a>
+      </div>
+
+      <!-- Card 2: Dark Navy -->
+      <div class="stat-card card-dark">
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-face-smile"></i>
+        </div>
+        <h3 class="stat-number">20K+</h3>
+        <h4 class="stat-title">Clientes Satisfeitos</h4>
+        <p class="stat-desc">Parcerias corporativas de longo prazo baseadas na confiabilidade de entrega de suprimentos.</p>
+        <ul class="stat-features">
+          <li><i class="fa-solid fa-check"></i> 99.8% de Feedbacks Positivos</li>
+          <li><i class="fa-solid fa-check"></i> Redução de 15% nos Custos</li>
+        </ul>
+        <a href="/about" class="btn btn-primary btn-stat">Quem Somos</a>
+      </div>
+
+      <!-- Card 3: Orange Secondary -->
+      <div class="stat-card card-orange">
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <h3 class="stat-number">30K+</h3>
+        <h4 class="stat-title">Equipe Técnica Especializada</h4>
+        <p class="stat-desc">Profissionais treinados e prontos para lidar com processos aduaneiros e fretes de risco.</p>
+        <ul class="stat-features">
+          <li><i class="fa-solid fa-check"></i> Engenheiros Logísticos</li>
+          <li><i class="fa-solid fa-check"></i> Despachantes Aduaneiros 24/7</li>
+        </ul>
+        <a href="/contact" class="btn btn-white btn-stat">Fale Conosco</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    position: relative;
+    padding: 0;
+    margin-top: -80px; /* Overlaps with previous section for premium visual style */
+    z-index: 10;
+  }
+
+  .stats-grid {
+    gap: 1.5rem !important;
+  }
+
+  .stat-card {
+    padding: 3rem 2.5rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-normal);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .card-orange {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+  }
+
+  .card-dark {
+    background-color: var(--color-primary-light);
+    color: var(--color-text-light);
+  }
+
+  .stat-icon-wrapper {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .card-orange .stat-icon-wrapper {
+    color: var(--color-text-light);
+  }
+
+  .card-dark .stat-icon-wrapper {
+    color: var(--color-accent);
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+  }
+
+  .stat-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
+  }
+
+  .stat-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .stat-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .stat-features i {
+    font-size: 0.9rem;
+  }
+
+  .btn-stat {
+    margin-top: auto;
+    font-size: 0.8rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  @media (max-width: 992px) {
+    .stats-section {
+      margin-top: 0;
+      padding: 4rem 0;
+    }
+  }
+</style>

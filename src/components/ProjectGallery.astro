@@ -1,0 +1,218 @@
+---
+// ProjectGallery.astro
+const projects = [
+  {
+    image: "/images/gallery_warehouse.png",
+    title: "Distribuição e Armazenagem",
+    category: "Armazém"
+  },
+  {
+    image: "/images/about_truck.png",
+    title: "Frete Rodoviário de Longo Curso",
+    category: "Rodoviário"
+  },
+  {
+    image: "/images/about_airplane.png",
+    title: "Carga Aérea de Alta Prioridade",
+    category: "Aéreo"
+  },
+  {
+    image: "/images/hero_cargo_ship.png",
+    title: "Transporte Marítimo de Contêineres",
+    category: "Marítimo"
+  },
+  {
+    image: "/images/about_truck.png",
+    title: "Logística Urbana de Última Milha",
+    category: "Rodoviário"
+  },
+  {
+    image: "/images/gallery_warehouse.png",
+    title: "Gestão Logística de CD Industrial",
+    category: "Armazém"
+  }
+];
+---
+
+<section class="portfolio-section section-padding">
+  <div class="container">
+    <!-- Header -->
+    <div class="portfolio-header flex-between flex-wrap gap-2">
+      <div>
+        <span class="badge-tag">Galeria</span>
+        <h2 class="section-title">Portfólio de Operações</h2>
+      </div>
+      <!-- Portfolio Filter Buttons (Visual only) -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active">Todos</button>
+        <button class="filter-btn">Marítimo</button>
+        <button class="filter-btn">Aéreo</button>
+        <button class="filter-btn">Rodoviário</button>
+        <button class="filter-btn">Armazém</button>
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="portfolio-grid grid grid-3">
+      {projects.map((project) => (
+        <div class="portfolio-item">
+          <div class="portfolio-img-box">
+            <img src={project.image} alt={project.title} />
+            <div class="portfolio-overlay">
+              <span class="portfolio-cat">{project.category}</span>
+              <h3 class="portfolio-item-title">{project.title}</h3>
+              <a href="#" class="portfolio-details-link" aria-label="View Project Details">
+                <i class="fa-solid fa-plus"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio-section {
+    background-color: var(--color-bg-white);
+  }
+
+  .portfolio-header {
+    margin-bottom: 3.5rem;
+    align-items: flex-end;
+  }
+
+  /* Filters */
+  .portfolio-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    background-color: var(--color-bg-light);
+    transition: all var(--transition-normal);
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Grid & Items */
+  .portfolio-grid {
+    gap: 1.5rem;
+  }
+
+  .portfolio-item {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .portfolio-img-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .portfolio-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  /* Overlay sliding up */
+  .portfolio-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(10, 34, 45, 0.95) 0%, rgba(10, 34, 45, 0.6) 100%);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all var(--transition-normal);
+    z-index: 2;
+  }
+
+  .portfolio-item:hover .portfolio-img-box img {
+    transform: scale(1.1);
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    bottom: 0;
+  }
+
+  .portfolio-cat {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-item-title {
+    color: var(--color-text-light);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-details-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-accent);
+    align-self: flex-start;
+    transition: all var(--transition-fast);
+  }
+
+  .portfolio-details-link:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-primary);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (max-width: 992px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .portfolio-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

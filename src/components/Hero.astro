@@ -1,0 +1,126 @@
+---
+// Hero.astro
+---
+
+<section class="hero-section">
+  <!-- Dynamic Background Image with Dark Teal Overlay -->
+  <div class="hero-bg" style="background-image: url('/images/hero_cargo_ship.png');"></div>
+  <div class="overlay-dark"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content animate-fade-in-up">
+      <span class="badge-tag hero-badge">Soluções Globais</span>
+      <h1 class="hero-title">
+        Transporte e Logística <br />
+        <span class="text-accent-color">100% Segura e Rápida</span>
+      </h1>
+      <p class="hero-desc">
+        Oferecemos as melhores soluções de transporte e logística do mundo. Garantimos que sua carga chegue ao destino com segurança, rapidez e o melhor custo-benefício.
+      </p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Fale Conosco</a>
+        <a href="/services" class="btn btn-white">Nossos Serviços</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Wave Accent / Angle Accent -->
+  <div class="hero-bottom-angle"></div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--color-text-light);
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--transition-slow);
+    z-index: 0;
+  }
+
+  /* Soft zoom animation on load */
+  .hero-section:hover .hero-bg {
+    transform: scale(1.05);
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 4rem;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .hero-badge {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 0.35rem 1rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .text-accent-color {
+    color: var(--color-accent);
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: rgba(248, 250, 252, 0.85); /* lighter soft slate */
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    max-width: 650px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Bottom Angle Accent */
+  .hero-bottom-angle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--color-bg-white);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 0);
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-desc {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,230 @@
+---
+// BlogSection.astro
+const posts = [
+  {
+    image: "/images/about_airplane.png",
+    date: "10 JUL",
+    author: "Por Polyana Souza",
+    comments: "4 Comentários",
+    title: "O Impacto da Inteligência Artificial na Rota de Carga Aérea",
+    desc: "Como algoritmos preditivos e otimizadores de espaço estão acelerando o transporte de frete aéreo internacional.",
+    link: "#"
+  },
+  {
+    image: "/images/about_truck.png",
+    date: "08 JUL",
+    author: "Por Operações",
+    comments: "2 Comentários",
+    title: "Desafios do Transporte Rodoviário de Longo Curso no Brasil",
+    desc: "Análise detalhada sobre infraestrutura, escoltas de cargas críticas e gestão de frotas para otimização de custos.",
+    link: "#"
+  },
+  {
+    image: "/images/gallery_warehouse.png",
+    date: "05 JUL",
+    author: "Por Tecnologia",
+    comments: "0 Comentários",
+    title: "Centros de Distribuição 4.0: Automação e Armazenagem",
+    desc: "Saiba como a integração de esteiras inteligentes e sistemas WMS modernos evitam gargalos de expedição.",
+    link: "#"
+  }
+];
+---
+
+<section class="blog-section section-padding">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header text-center">
+      <span class="badge-tag">Blog & Notícias</span>
+      <h2 class="section-title">Nossas Últimas Postagens</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid grid grid-3">
+      {posts.map((post) => (
+        <article class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src={post.image} alt={post.title} class="blog-img" />
+            <!-- Date Badge -->
+            <div class="blog-date-badge">
+              <span class="date-day">{post.date.split(' ')[0]}</span>
+              <span class="date-month">{post.date.split(' ')[1]}</span>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta flex-between">
+              <span><i class="fa-solid fa-user"></i> {post.author}</span>
+              <span><i class="fa-solid fa-comments"></i> {post.comments}</span>
+            </div>
+            <h3 class="blog-title"><a href={post.link}>{post.title}</a></h3>
+            <p class="blog-desc">{post.desc}</p>
+            <a href={post.link} class="blog-readmore-link">
+              Ler Artigo <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-section {
+    background-color: var(--color-bg-light);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: 1rem auto 0 auto;
+  }
+
+  /* Grid & Cards */
+  .blog-grid {
+    gap: 2rem;
+  }
+
+  .blog-card {
+    background-color: var(--color-bg-white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .blog-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .blog-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .blog-card:hover .blog-img {
+    transform: scale(1.08);
+  }
+
+  /* Date badge */
+  .blog-date-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-accent);
+    z-index: 2;
+  }
+
+  .date-day {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .date-month {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Content */
+  .blog-content {
+    padding: 2rem;
+  }
+
+  .blog-meta {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+  }
+
+  .blog-meta i {
+    color: var(--color-accent);
+    margin-right: 0.25rem;
+  }
+
+  .blog-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    transition: var(--transition-fast);
+  }
+
+  .blog-title a:hover {
+    color: var(--color-accent);
+  }
+
+  .blog-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-readmore-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-readmore-link i {
+    font-size: 0.75rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .blog-readmore-link:hover {
+    color: var(--color-accent);
+  }
+
+  .blog-readmore-link:hover i {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 992px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

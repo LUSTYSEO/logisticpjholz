@@ -1,0 +1,190 @@
+---
+// TeamSection.astro
+const team = [
+  {
+    name: "Polyana Souza",
+    role: "Fundadora & CEO",
+    image: "/images/ceo_avatar.png"
+  },
+  {
+    name: "Carlos Silveira",
+    role: "Diretor de Operações",
+    image: "/images/ceo_avatar.png"
+  },
+  {
+    name: "Mariana Costa",
+    role: "Chefe de Logística Aérea",
+    image: "/images/ceo_avatar.png"
+  },
+  {
+    name: "Fernando Dias",
+    role: "Gerente de Frota & Portos",
+    image: "/images/ceo_avatar.png"
+  }
+];
+---
+
+<section class="team-section section-padding">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header text-center">
+      <span class="badge-tag">Membros do Time</span>
+      <h2 class="section-title">Nossos Especialistas</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Grid -->
+    <div class="team-grid grid grid-4">
+      {team.map((member) => (
+        <div class="team-card">
+          <div class="team-img-wrapper">
+            <img src={member.image} alt={member.name} class="team-img" />
+            <!-- Social Floating Overlay -->
+            <div class="team-social-overlay">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3 class="member-name">{member.name}</h3>
+            <span class="member-role">{member.role}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section {
+    background-color: var(--color-bg-light);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: 1rem auto 0 auto;
+  }
+
+  /* Grid & Cards */
+  .team-grid {
+    gap: 2rem;
+  }
+
+  .team-card {
+    background-color: var(--color-bg-white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .team-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .team-card:hover .team-img {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+  }
+
+  /* Social overlay */
+  .team-social-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: 2;
+  }
+
+  .team-card:hover .team-social-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .team-social-overlay a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-accent);
+    transition: all var(--transition-fast);
+  }
+
+  .team-social-overlay a:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+  }
+
+  /* Info */
+  .team-info {
+    padding: 1.5rem;
+    border-top: 3px solid transparent;
+    transition: all var(--transition-normal);
+  }
+
+  .team-card:hover .team-info {
+    border-top-color: var(--color-accent);
+  }
+
+  .member-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .member-role {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  @media (max-width: 992px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutSection from '../components/AboutSection.astro';
+import TeamSection from '../components/TeamSection.astro';
+import StatsSection from '../components/StatsSection.astro';
+---
+
+<Layout title="Sobre Nós - pjholz Logística" description="Conheça a história da pjholz, nossos valores, missão e a equipe de especialistas por trás do sucesso das suas entregas.">
+  <!-- Page Header Banner -->
+  <section class="page-header" style="background-image: linear-gradient(rgba(10, 34, 45, 0.85), rgba(10, 34, 45, 0.85)), url('/images/hero_cargo_ship.png');">
+    <div class="container text-center">
+      <h1>Sobre Nós</h1>
+      <div class="breadcrumbs">
+        <a href="/">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Sobre Nós</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core About Details -->
+  <AboutSection />
+
+  <!-- Mission Vision Values -->
+  <section class="mission-vision section-padding">
+    <div class="container grid grid-3">
+      <div class="mvv-card">
+        <div class="mvv-icon-box">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <h3>Nossa Missão</h3>
+        <p>Prover soluções logísticas integradas de alta performance que impulsionem a produtividade e competitividade dos nossos clientes globalmente, com segurança e pontualidade.</p>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-icon-box">
+          <i class="fa-solid fa-eye"></i>
+        </div>
+        <h3>Nossa Visão</h3>
+        <p>Ser reconhecida globalmente como a parceira logística mais confiável, inovadora e sustentável do mercado, liderando o setor em eficiência operacional e atendimento ao cliente.</p>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-icon-box">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+        <h3>Nossos Valores</h3>
+        <p>Integridade em todas as ações, obsessão por segurança operacional, compromisso com prazos, sustentabilidade ambiental em nossos modais e respeito absoluto às parcerias formadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <TeamSection />
+</Layout>
+
+<style>
+  /* Page Header Styles */
+  .page-header {
+    padding: 6rem 0;
+    background-size: cover;
+    background-position: center;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-text-light);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-accent);
+  }
+
+  .breadcrumbs i {
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+  }
+
+  /* Mission Vision Values Cards */
+  .mission-vision {
+    background-color: var(--color-bg-light);
+  }
+
+  .mvv-card {
+    background-color: var(--color-bg-white);
+    padding: 3rem 2rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .mvv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .mvv-icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+    transition: all var(--transition-normal);
+  }
+
+  .mvv-card:hover class="mvv-icon-box" {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    transform: rotate(360deg);
+  }
+
+  .mvv-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .mvv-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+</style>

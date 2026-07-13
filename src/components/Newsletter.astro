@@ -1,0 +1,106 @@
+---
+// Newsletter.astro
+---
+
+<section class="newsletter-bar">
+  <div class="container flex-between flex-wrap gap-2">
+    <!-- Left text -->
+    <div class="newsletter-text-block">
+      <i class="fa-regular fa-paper-plane plane-icon"></i>
+      <div>
+        <h3>Inscreva-se na Nossa Newsletter</h3>
+        <p>Receba as últimas novidades de transporte e tendências do mercado logístico.</p>
+      </div>
+    </div>
+
+    <!-- Right form -->
+    <form class="newsletter-form">
+      <input type="email" placeholder="Seu e-mail corporativo" required class="newsletter-input" />
+      <button type="submit" class="btn btn-secondary btn-newsletter">Inscrever-se</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter-bar {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 3rem 0;
+    position: relative;
+    z-index: 10;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .newsletter-text-block {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .plane-icon {
+    font-size: 2.5rem;
+    opacity: 0.9;
+    animation: swayPlane 3s ease-in-out infinite;
+  }
+
+  .newsletter-text-block h3 {
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  .newsletter-text-block p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+  }
+
+  /* Form */
+  .newsletter-form {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--color-bg-white);
+    border-radius: 4px;
+    padding: 0.35rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .btn-newsletter {
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  @keyframes swayPlane {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(5deg);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .newsletter-bar .flex-between {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .newsletter-form {
+      max-width: 100%;
+      margin-top: 1.5rem;
+    }
+  }
+</style>

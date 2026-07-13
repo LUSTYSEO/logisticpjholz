@@ -1,0 +1,276 @@
+---
+// QuoteForm.astro
+---
+
+<section class="quote-section" id="quote">
+  <div class="quote-grid-container">
+    <!-- Left Column: Form -->
+    <div class="quote-form-side">
+      <div class="form-wrapper">
+        <span class="badge-tag">Orçamento</span>
+        <h2 class="form-section-title">Solicite uma Cotação</h2>
+        <p class="form-section-desc">Insira os dados da sua carga abaixo para receber uma estimativa rápida e detalhada da nossa equipe de engenharia logística.</p>
+
+        <!-- Tabs -->
+        <div class="freight-tabs">
+          <button class="tab-btn active" data-type="ocean"><i class="fa-solid fa-ship"></i> Marítimo / Rodoviário</button>
+          <button class="tab-btn" data-type="air"><i class="fa-solid fa-plane"></i> Aéreo / Expresso</button>
+        </div>
+
+        <!-- Form Elements -->
+        <form class="actual-form">
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label class="form-label" for="quoteName">Nome Completo</label>
+              <input type="text" id="quoteName" class="form-input" placeholder="Ex: João Silva" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="quoteEmail">E-mail Corporativo</label>
+              <input type="email" id="quoteEmail" class="form-input" placeholder="Ex: joao@empresa.com" required />
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label class="form-label" for="quotePhone">Telefone</label>
+              <input type="tel" id="quotePhone" class="form-input" placeholder="Ex: (11) 99999-8888" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="quoteService">Tipo de Serviço</label>
+              <select id="quoteService" class="form-select">
+                <option value="ocean">Frete Marítimo FCL / LCL</option>
+                <option value="road">Frete Rodoviário Carga Fechada</option>
+                <option value="air">Frete Aéreo Internacional</option>
+                <option value="warehouse">Armazenagem e Distribuição</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-3">
+            <div class="form-group">
+              <label class="form-label" for="quoteOrigin">Cidade Origem</label>
+              <input type="text" id="quoteOrigin" class="form-input" placeholder="Ex: Santos-SP" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="quoteDest">Cidade Destino</label>
+              <input type="text" id="quoteDest" class="form-input" placeholder="Ex: Miami, USA" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="quoteWeight">Peso Total (kg)</label>
+              <input type="number" id="quoteWeight" class="form-input" placeholder="Ex: 1500" required />
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="form-checkbox">
+              <input type="checkbox" name="express" />
+              <span>Entrega Expressa</span>
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="fragile" />
+              <span>Carga Frágil</span>
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="insurance" checked />
+              <span>Seguro de Carga Incluso</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit-quote">
+            Solicitar Orçamento <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column: Image Banner -->
+    <div class="quote-img-side" style="background-image: url('/images/hero_cargo_ship.png');">
+      <div class="overlay-dark"></div>
+      <div class="img-side-content">
+        <div class="quote-info-card">
+          <i class="fa-solid fa-headset"></i>
+          <div>
+            <h3>Fale com um Especialista</h3>
+            <p>Atendimento comercial rápido: <br><strong>+55 (11) 4002-8922</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quote-section {
+    background-color: var(--color-primary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-grid-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  /* Left Form Column styling */
+  .quote-form-side {
+    padding: 6rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 700px;
+    margin-right: auto;
+    padding-left: 2rem;
+  }
+
+  .form-section-title {
+    color: var(--color-text-light);
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-section-desc {
+    color: rgba(248, 250, 252, 0.7);
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Freight tabs */
+  .freight-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+  }
+
+  .tab-btn {
+    font-family: var(--font-heading);
+    color: rgba(248, 250, 252, 0.6);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .tab-btn i {
+    font-size: 1rem;
+  }
+
+  .tab-btn:hover,
+  .tab-btn.active {
+    color: var(--color-text-light);
+    background-color: var(--color-accent);
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Checkboxes */
+  .form-options {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0 2.5rem 0;
+    flex-wrap: wrap;
+  }
+
+  .btn-submit-quote {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Right Image Column styling */
+  .quote-img-side {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 4rem;
+  }
+
+  .quote-img-side .overlay-dark {
+    background: rgba(6, 21, 28, 0.6);
+  }
+
+  .img-side-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .quote-info-card {
+    background-color: var(--color-accent);
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    color: var(--color-text-light);
+  }
+
+  .quote-info-card i {
+    font-size: 2.5rem;
+  }
+
+  .quote-info-card h3 {
+    color: var(--color-text-light);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .quote-info-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 992px) {
+    .quote-grid-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .quote-img-side {
+      height: 300px;
+    }
+
+    .quote-form-side {
+      padding: 4rem 1.5rem;
+      justify-content: center;
+    }
+
+    .form-wrapper {
+      padding-left: 0;
+    }
+  }
+</style>
+
+<script>
+  // Dynamic Tab Action
+  const tabs = document.querySelectorAll('.tab-btn');
+  const serviceSelect = document.getElementById('quoteService') as HTMLSelectElement;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Toggle Active Class
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const freightType = tab.getAttribute('data-type');
+      if (serviceSelect && freightType) {
+        if (freightType === 'ocean') {
+          serviceSelect.value = 'ocean';
+        } else if (freightType === 'air') {
+          serviceSelect.value = 'air';
+        }
+      }
+    });
+  });
+</script>

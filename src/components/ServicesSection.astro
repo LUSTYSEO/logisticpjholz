@@ -1,0 +1,229 @@
+---
+// ServicesSection.astro
+const services = [
+  {
+    icon: "fa-solid fa-ship",
+    number: "01",
+    title: "Frete Marítimo",
+    desc: "Transporte marítimo eficiente de contêineres e cargas consolidadas de porto a porto globalmente.",
+    link: "/services#ocean"
+  },
+  {
+    icon: "fa-solid fa-warehouse",
+    number: "02",
+    title: "Armazenagem & CDs",
+    desc: "Centros de distribuição estratégicos com gerenciamento inteligente de estoque e segurança 24h.",
+    link: "/services#warehouse"
+  },
+  {
+    icon: "fa-solid fa-truck-moving",
+    number: "03",
+    title: "Frete Rodoviário",
+    desc: "Frota própria e agregada rastreada para entregas de cargas fracionadas e lotações nacionais.",
+    link: "/services#road"
+  },
+  {
+    icon: "fa-solid fa-cubes",
+    number: "04",
+    title: "Cargas Especiais",
+    desc: "Operações complexas e sob medida para maquinários, produtos químicos e cargas perigosas.",
+    link: "/services#cargo"
+  },
+  {
+    icon: "fa-solid fa-plane-departure",
+    number: "05",
+    title: "Frete Aéreo",
+    desc: "Soluções de frete aéreo expresso internacional para entregas urgentes e de alto valor.",
+    link: "/services#air"
+  },
+  {
+    icon: "fa-solid fa-train",
+    number: "06",
+    title: "Frete Ferroviário",
+    desc: "Transporte multimodal via ferrovia ideal para volumes pesados e grandes distâncias industriais.",
+    link: "/services#rail"
+  }
+];
+---
+
+<section class="services-section section-padding">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <span class="badge-tag">Nossos Especialistas</span>
+      <h2 class="section-title">Nossos Serviços Logísticos</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid grid grid-3">
+      {services.map((service) => (
+        <div class="service-card">
+          <div class="card-top flex-between">
+            <div class="service-icon-box">
+              <i class={service.icon}></i>
+            </div>
+            <span class="service-number">{service.number}</span>
+          </div>
+          <h3 class="service-card-title">{service.title}</h3>
+          <p class="service-card-desc">{service.desc}</p>
+          <a href={service.link} class="service-card-link">
+            Ler Mais <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    background-color: var(--color-bg-light);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: 1rem auto 0 auto;
+  }
+
+  /* Services Grid & Cards */
+  .services-grid {
+    margin-top: 1rem;
+  }
+
+  .service-card {
+    background-color: var(--color-bg-white);
+    padding: 2.5rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+    border-bottom: 3px solid transparent;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-accent);
+  }
+
+  /* Decorative card background circle on hover */
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(255, 90, 44, 0.03);
+    transition: all var(--transition-normal);
+    z-index: 0;
+  }
+
+  .service-card:hover::after {
+    transform: scale(1.5);
+    background-color: rgba(255, 90, 44, 0.06);
+  }
+
+  .card-top {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .service-icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-bg-light);
+    color: var(--color-primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all var(--transition-normal);
+  }
+
+  .service-card:hover .service-icon-box {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .service-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(10, 34, 45, 0.08);
+    transition: var(--transition-fast);
+  }
+
+  .service-card:hover .service-number {
+    color: var(--color-accent-soft);
+  }
+
+  .service-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    position: relative;
+    z-index: 2;
+  }
+
+  .service-card-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+  }
+
+  .service-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .service-card-link i {
+    font-size: 0.8rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .service-card-link:hover {
+    color: var(--color-accent);
+  }
+
+  .service-card-link:hover i {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 992px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

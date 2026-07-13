@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contato - pjholz Logística" description="Fale com a equipe comercial ou suporte da pjholz. Preencha o formulário ou visite um de nossos escritórios centrais em São Paulo.">
+  <!-- Page Header Banner -->
+  <section class="page-header" style="background-image: linear-gradient(rgba(10, 34, 45, 0.85), rgba(10, 34, 45, 0.85)), url('/images/hero_cargo_ship.png');">
+    <div class="container text-center">
+      <h1>Fale Conosco</h1>
+      <div class="breadcrumbs">
+        <a href="/">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Contato</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info Cards -->
+  <section class="contact-details-section section-padding">
+    <div class="container grid grid-2">
+      <!-- Left Column: Info cards -->
+      <div class="contact-info-cards">
+        <span class="badge-tag">Contatos</span>
+        <h2>Entre em Contato por Nossos Canais Oficiais</h2>
+        <p class="contact-intro-desc">
+          Seja para cotações complexas, dúvidas sobre fretes em trânsito ou parcerias comerciais, nosso time está à disposição para responder rapidamente.
+        </p>
+
+        <div class="info-card-list">
+          <div class="info-card-item">
+            <div class="icon-circle">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3>Nosso Endereço</h3>
+              <p>Av. das Nações Unidas, 12901 - Brooklin Novo, São Paulo - SP, 04578-000</p>
+            </div>
+          </div>
+
+          <div class="info-card-item">
+            <div class="icon-circle">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <h3>Telefones de Atendimento</h3>
+              <p>Comercial: +55 (11) 4002-8922<br>WhatsApp: +55 (11) 99999-8888</p>
+            </div>
+          </div>
+
+          <div class="info-card-item">
+            <div class="icon-circle">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Endereços de E-mail</h3>
+              <p>Cotações: cotacao@pjholz.com.br<br>Suporte: suporte@pjholz.com.br</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Message Form -->
+      <div class="contact-form-card">
+        <h3>Envie uma Mensagem</h3>
+        <form class="contact-message-form">
+          <div class="form-group">
+            <label class="form-label-dark" for="contactName">Nome</label>
+            <input type="text" id="contactName" class="form-input-dark" placeholder="Digite seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label-dark" for="contactEmail">E-mail</label>
+            <input type="email" id="contactEmail" class="form-input-dark" placeholder="Ex: joao@empresa.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label-dark" for="contactSubject">Assunto</label>
+            <input type="text" id="contactSubject" class="form-input-dark" placeholder="Ex: Cotação de Carga Rodoviária" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label-dark" for="contactMsg">Mensagem</label>
+            <textarea id="contactMsg" rows="5" class="form-input-dark text-area-dark" placeholder="Escreva os detalhes da sua mensagem..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-send-message">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section (Iframe or Styled Canvas) -->
+  <section class="map-iframe-section">
+    <!-- Centered map of São Paulo Brooklin area -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.0967527663245!2d-46.699719325439564!3d-23.600863063013095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5733f114674d%3A0xe5e744d0c914b184!2sAv.%20das%20Na%C3%A7%C3%B5es%20Unidas%2C%2012901%20-%20Brooklin%20Novo%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1689083549221!5m2!1spt-BR!2sbr" 
+      width="100%" 
+      height="450" 
+      style="border:0; display: block;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Google Map Location pjholz">
+    </iframe>
+  </section>
+</Layout>
+
+<style>
+  /* Page Header Styles */
+  .page-header {
+    padding: 6rem 0;
+    background-size: cover;
+    background-position: center;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-text-light);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-accent);
+  }
+
+  .breadcrumbs i {
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+  }
+
+  /* Contact layout */
+  .contact-details-section {
+    background-color: var(--color-bg-light);
+  }
+
+  .contact-intro-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .info-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .info-card-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-accent);
+    flex-shrink: 0;
+  }
+
+  .info-card-item h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--color-primary);
+  }
+
+  .info-card-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Form Card on Right */
+  .contact-form-card {
+    background-color: var(--color-bg-white);
+    padding: 3rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .contact-form-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  /* Dark theme Form Inputs (for white cards) */
+  .form-label-dark {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .form-input-dark {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-dark);
+    transition: var(--transition-fast);
+  }
+
+  .form-input-dark:focus {
+    border-color: var(--color-accent);
+    background: var(--color-bg-white);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .text-area-dark {
+    resize: vertical;
+    font-family: var(--font-body);
+  }
+
+  .btn-send-message {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .contact-form-card {
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+  }
+</style>
